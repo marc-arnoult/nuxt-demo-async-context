@@ -4,7 +4,7 @@ export default defineEventHandler((event) => {
   const id = event.context.params.id;
   const { correlationId } = event.context;
   try {
-    const user = userService.getUserById(id, correlationId);
+    const user = userService.getUserById(id);
     return {
       user,
       message: `User with ID ${id} retrieved successfully`

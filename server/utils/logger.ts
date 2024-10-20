@@ -1,8 +1,10 @@
 export default {
-  info(message: string, context: Record<string, any> = {}) {
-    console.log(JSON.stringify({ level: 'INFO', message, ...context }));
+  info(message: string) {
+    const { context: { correlationId } } = useEvent();
+    console.log(JSON.stringify({ level: 'INFO', message, correlationId }));
   },
-  error(message: string, context: Record<string, any> = {}) {
-    console.error(JSON.stringify({ level: 'ERROR', message, ...context }));
+  error(message: string) {
+    const { context: { correlationId } } = useEvent();
+    console.error(JSON.stringify({ level: 'ERROR', message, correlationId }));
   }
 };
